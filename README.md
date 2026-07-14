@@ -23,4 +23,19 @@ The Security Layer: This configuration prevents "Lateral Movement" (the virus tr
 
 ## Project Journal 
 
-### Day 1: Virtualization Setup & Sandbox Prep.
+### Day 1: Virtualization Setup & Sandbox Prep
+* Installed Oracle VirtualBox 7.2 and the corresponding Extension Pack for full hardware integration.
+* Created a virtual machine hardware profile ("NAS-Testlabor") allocating 4 GB RAM and 2 vCPUs.
+* Configured the virtual network interface card (NIC) to **Bridged Mode**.
+* Downloaded the official Ubuntu Linux Desktop ISO installer and mounted it as a virtual optical drive.
+
+### Day 2: Linux Sandbox Installation & Network Verification
+* **OS Deployment:** Successfully installed Linux Ubuntu Desktop inside the "NAS-Testlabor" virtual machine using the newly created "ISOs" directory structure. 
+* **Security Validation:** Confirmed that the "Erase disk and install" warning only affected the isolated 20 GB virtual drive, keeping the Windows host completely safe. 
+* **Network Bridge Testing:**
+  * Encountered a "100% packet loss" during a traditional terminal "ping" test due to the router/firewall blocking ICMP traffic.
+  * **Package Management:** Discovered that "curl" was not pre-installed on the fresh OS. Successfully updated the package lists and installed the utility via the terminal.
+  * **Final Verification:** Verified full network functionality and successful internet access via successfully streaming media in Firefox and running the command `curl -I https://www.google.com`, which returned a valid "HTTP/2 301" redirect status.
+* **System State Frozen:** Created a VirtualBox Snapshot named "Linux installed" to freeze this clean, verified state before any interaction with the physical NAS takes place.
+
+
