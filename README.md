@@ -38,4 +38,12 @@ The Security Layer: This configuration prevents "Lateral Movement" (the virus tr
   * **Final Verification:** Verified full network functionality and successful internet access via successfully streaming media in Firefox and running the command `curl -I https://www.google.com`, which returned a valid "HTTP/2 301" redirect status.
 * **System State Frozen:** Created a VirtualBox Snapshot named "Linux installed" to freeze this clean, verified state before any interaction with the physical NAS takes place.
 
+### Day 3: Hardware Contigency & Recover Strategy Pivot
+* **Status Update:** Encountered a physical hardware blocker. The power supply unit (PSU) found with the WD MyCloud EX2 Ultra did not match the required hardware specifications (12V, 3A). To prevent permanent electrical damage to the NAS or the hardware drives, the voot process wal halted.
+* **Contingency Planning: ** Developed a dual-track stratefy to bypass the power supply issue:
+  * **Strategy A (Preferred): ** Locate the original WD 12V/3A power adapter or secure a cerified universal replacement PSU to boot the NAS normally via the network bridge.
+  * **Strategy B (Fallback - Physical Passthrough): ** Physically extract the 3.5" SATA hard drives from the toolless WD MyCloud enclosure. Connect the drives via an external USB-to-SATA docking station with its own 12V power supply.
+  * **Security Protocol for Stratefy B: ** Use the VirtualBox Extension Pack to capture the USB device controller. This forces an exclusive hardware-level passthrough directly into the isolated Linux VM, ensuring the Windows host never mounts or interacts with the potentially infected filesystem.
+  * **Current State:** The clean Ubuntu sandbox enironment remains securely frozen via the Virtualbox snapshot ("Linux installed"). The project is on pause until the power deliver method is finalized. 
+
 
