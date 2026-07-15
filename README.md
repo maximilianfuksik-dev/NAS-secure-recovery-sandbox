@@ -44,6 +44,8 @@ The Security Layer: This configuration prevents "Lateral Movement" (the virus tr
   * **Strategy A (Preferred): ** Locate the original WD 12V/3A power adapter or secure a cerified universal replacement PSU to boot the NAS normally via the network bridge.
   * **Strategy B (Fallback - Physical Passthrough): ** Physically extract the 3.5" SATA hard drives from the toolless WD MyCloud enclosure. Connect the drives via an external USB-to-SATA docking station with its own 12V power supply.
   * **Security Protocol for Stratefy B: ** Use the VirtualBox Extension Pack to capture the USB device controller. This forces an exclusive hardware-level passthrough directly into the isolated Linux VM, ensuring the Windows host never mounts or interacts with the potentially infected filesystem.
-  * **Current State:** The clean Ubuntu sandbox enironment remains securely frozen via the Virtualbox snapshot ("Linux installed"). The project is on pause until the power deliver method is finalized. 
+  * **Current State:** The clean Ubuntu sandbox enironment remains securely frozen via the Virtualbox snapshot ("Linux installed"). The project is on pause until the power deliver method is finalized.
+  * **Update (Resolution):** Decided to proceed with **Strategy A**. A certified replacement power supply unit matching the exact technical specifications (12V, 3A, correct barrel connector geometry) has been ordered via Amazon. The project is temporarily on standby until the hardware arrives.
+
 
 
